@@ -1,3 +1,1 @@
-# React chess
-
-Starter code for the tutorial of building a chess application with react# chess-app
+ссылка на рабочую версию: https://react-chess-fd112.netlify.app/

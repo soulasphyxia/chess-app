@@ -7,7 +7,6 @@ export default function Home() {
     const history = useHistory()
     const newGameOptions = [
         { label: 'Черные', value: 'b' },
-        { label: 'Чёрные', value: 'b' },
         { label: 'Белые', value: 'w' },
         { label: 'Случайно', value: 'r' },
     ]
@@ -34,25 +33,26 @@ export default function Home() {
 
     return (
         <>
+          
           <div className="BG">
 
-            <div className="Title">Играть в шахматы онлайн на сайте</div>
-            <div className="Pic"></div>
+            
+            <div className="Title">Играть в Томские шахматы онлайн на сайте</div>
 
-            <div className="LinkBG">
-                <a class="Link" href="https://en.wikipedia.org/wiki/Rules_of_chess">Перейдя по данной ссылке, вы можете ознакомиться с правилами игры в шахматы.</a>
-            </div>
+            <div className="Pic"></div>
+            <p className="comm">Всегда хочется отдохнуть и заняться своим любимым делом. Все мы люди, и все мы устаем, и у каждого из нас должно быть свое хобби, чтобы предаться ему со всей душой. Если вы неравнодушны к шахматам – этот сайт то, что вам нужно. Здесь вы сможете играть в шахматы онлайн. Вам не нужно скачивать шахматы. Просто заходите на наш портал и играйте бесплатно в эту великую игру, которая не даст вам скучать.</p>
  
             <div >
-                 <button className="play-btn" onClick={handlePlayOnline}> Начать игру</button>
+                 <button className="play-btn pointer" onClick={handlePlayOnline}> Начать игру</button>
             </div>
             
                 <div classname = "play-btnBlock">
-                    <button className="play-btn" onClick={handlePlayOnline}> Начать игру </button>
+                    <button className="play-btn pointer" onClick={handlePlayOnline}> Начать игру </button>
                 </div>
 				<div>
 				<form classname="link-btn" action = "https://xchess.ru/pravila-igry-v-shakhmaty-polnoe-rukovodstvo.html">
-					<button > Правила игры </button>
+					<button className="rules_btn pointer"> Правила игры </button>
+
 				</form>
 				</div>
             <div className={`modal ${showModal ? 'is-active' : ''}`}>

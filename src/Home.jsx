@@ -25,7 +25,7 @@ export default function Home() {
         const game = {
             status: 'waiting',
             members: [member],
-            gameId: `${Math.random().toString(36).substr(2, 9)}_${Date.now()}`
+            gameId: `${Date.now()}`,
         }
         await db.collection('games').doc(game.gameId).set(game)
         history.push(`/game/${game.gameId}`)
@@ -33,19 +33,10 @@ export default function Home() {
 
     return (
         <>
-            <div className="columns home">
-                <div className="column has-background-primary home-columns">
-                    <button className="button is-link">
-                        Play Locally
-                    </button>
+            
+                <div >
+                    <button className="play-btn" onClick={handlePlayOnline}> Play </button>
                 </div>
-                <div className="column has-background-link home-columns">
-                    <button className="button is-primary"
-                        onClick={handlePlayOnline}>
-                        Play Online
-                    </button>
-                </div>
-            </div>
             <div className={`modal ${showModal ? 'is-active' : ''}`}>
                 <div className="modal-background"></div>
                 <div className="modal-content">

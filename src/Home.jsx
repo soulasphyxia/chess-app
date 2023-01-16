@@ -6,11 +6,10 @@ export default function Home() {
     const [showModal, setShowModal] = useState(false)
     const history = useHistory()
     const newGameOptions = [
-        { label: 'Black pieces', value: 'b' },
-        { label: 'White pieces', value: 'w' },
-        { label: 'Random', value: 'r' },
+        { label: 'Чёрные', value: 'b' },
+        { label: 'Белые', value: 'w' },
+        { label: 'Случайно', value: 'r' },
     ]
-    
 
     function handlePlayOnline() {
         setShowModal(true)
@@ -31,30 +30,25 @@ export default function Home() {
         await db.collection('games').doc(game.gameId).set(game)
         history.push(`/game/${game.gameId}`)
     }
-  
-    
 
     return (
         <>
-          <div className="BG">
-
-            <div className="Title">Играть в шахматы онлайн на сайте</div>
-            <div className="Pic"></div>
-
-            <div className="LinkBG">
-                <a class="Link" href="https://en.wikipedia.org/wiki/Rules_of_chess">Перейдя по данной ссылке, вы можете ознакомиться с правилами игры в шахматы.</a>
-            </div>
- 
-            <div >
-                 <button className="play-btn" onClick={handlePlayOnline}> Play </button>
-            </div>
+            
+                <div classname = "play-btnBlock">
+                    <button className="play-btn" onClick={handlePlayOnline}> Начать игру </button>
+                </div>
+				<div>
+				<form classname="link-btn" action = "https://xchess.ru/pravila-igry-v-shakhmaty-polnoe-rukovodstvo.html">
+					<button > Правила игры </button>
+				</form>
+				</div>
             <div className={`modal ${showModal ? 'is-active' : ''}`}>
                 <div className="modal-background"></div>
                 <div className="modal-content">
                     <div className="card">
                         <div className="card-content">
                             <div className="content">
-                                Please Select the piece you want to start
+                                Пожалуйста, выберете сторону
                             </div>
 
                         </div>
@@ -70,7 +64,6 @@ export default function Home() {
                 </div>
                 <button className="modal-close is-large" onClick={() => setShowModal(false)}></button>
             </div>
-          </div>
         </>
     )
 }

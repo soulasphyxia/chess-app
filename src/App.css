@@ -3,12 +3,18 @@
     padding: 0;
 }
 
-.LinkBG {
-    background-color: rgb(34, 34, 34);
-    
 
+
+.play-btn {
+	width: 10%;
+	height:  10%;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	border-radius: 22px;
 }
 
+<<<<<<< HEAD
 .Pic {
 
     background-image: url("/assets/chessboard.jpg");
@@ -40,6 +46,8 @@
 }
 
 
+=======
+>>>>>>> bd5667e004c60e5659f376f10efab7521bdf48f0
 .app-container {
     min-height: 100vh;
     display: flex;

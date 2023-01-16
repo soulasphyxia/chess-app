@@ -3,6 +3,44 @@
     padding: 0;
 }
 
+.LinkBG {
+    background-color: rgb(34, 34, 34);
+    
+
+}
+
+.Pic {
+
+    background-image: url("assets/chessboard.jpg");
+
+
+}
+
+.BG {
+  
+  background-color: rgb(34,34,34);
+  height: 964px;
+  width: 100%;
+  
+
+
+}
+
+.Title {
+    color: #d1cdcd;
+    font-size: 40px;
+    text-align: center;
+
+}
+.Link {
+    color: #d1cdcd;
+    font-size: 20px;
+
+
+
+}
+
+
 .app-container {
     min-height: 100vh;
     display: flex;

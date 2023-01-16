@@ -10,6 +10,7 @@ export default function Home() {
         { label: 'White pieces', value: 'w' },
         { label: 'Random', value: 'r' },
     ]
+    
 
     function handlePlayOnline() {
         setShowModal(true)
@@ -30,13 +31,23 @@ export default function Home() {
         await db.collection('games').doc(game.gameId).set(game)
         history.push(`/game/${game.gameId}`)
     }
+  
+    
 
     return (
         <>
-            
-                <div >
-                    <button className="play-btn" onClick={handlePlayOnline}> Play </button>
-                </div>
+          <div className="BG">
+
+            <div className="Title">Играть в шахматы онлайн на сайте</div>
+            <div className="Pic"></div>
+
+            <div className="LinkBG">
+                <a class="Link" href="https://en.wikipedia.org/wiki/Rules_of_chess">Перейдя по данной ссылке, вы можете ознакомиться с правилами игры в шахматы.</a>
+            </div>
+ 
+            <div >
+                 <button className="play-btn" onClick={handlePlayOnline}> Play </button>
+            </div>
             <div className={`modal ${showModal ? 'is-active' : ''}`}>
                 <div className="modal-background"></div>
                 <div className="modal-content">
@@ -59,6 +70,7 @@ export default function Home() {
                 </div>
                 <button className="modal-close is-large" onClick={() => setShowModal(false)}></button>
             </div>
+          </div>
         </>
     )
 }

@@ -29,7 +29,7 @@
 }
 .share-game {
     position: absolute;
-    width: 500px;
+    width: 300px;
     bottom: 0;
     left: 0;
 }
@@ -64,6 +64,8 @@
 }
 
 .board-square {
+    display: flex;
+    justify-content: flex-start;
     width: 100%;
     height: 100%;
 }
@@ -101,4 +103,31 @@
     border: 2px solid white;
     border-radius: 10px;
 
+}
+
+
+.coordinates{
+    font-size: 10px;
+}
+
+.letters{
+    display: flex;
+    flex-direction: row;
+}
+
+.letter{
+    width: 12.5%;
+    height: 3.5%;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.numbers{ display: flex; flex-direction: column; margin-right: 5px; }
+
+.num{
+    height: 75px;
+    display: flex;
+    align-items: center;
+    color: white;
 }

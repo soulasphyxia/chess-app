@@ -28,6 +28,7 @@ export default function Board({ board, position }) {
     const letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'][
       x
     ]
+    console.log(`${letter}${y + 1}`)
     return `${letter}${y + 1}`
   }
   return (
@@ -38,6 +39,7 @@ export default function Board({ board, position }) {
             piece={piece}
             black={isBlack(i)}
             position={getPosition(i)}
+            text={getPosition(i)}
           />
         </div>
       ))}

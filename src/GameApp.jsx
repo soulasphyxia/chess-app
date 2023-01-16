@@ -5,6 +5,8 @@ import Board from './Board'
 import { useParams, useHistory } from 'react-router-dom'
 import { db } from './firebase'
 
+
+const letters = ['a','b','c','d','e','f','g','h'];
 function GameApp() {
   const [board, setBoard] = useState([])
   const [isGameOver, setIsGameOver] = useState()
@@ -70,9 +72,15 @@ function GameApp() {
           </button>
         </h2>
       )}
+      {!isGameOver && (
+        <div className="numbers">{letters.map((letter,index) => <div className="num">{index+1}</div>)}</div>
+      )}
       <div className="board-container">
         {game.oponent && game.oponent.name && <span className="tag is-link">{game.oponent.name}</span>}
         <Board board={board} position={position} />
+        <div className="letters">
+          {letters.map(letter => <div className="letter">{letter}</div>)}
+        </div>
         {game.member && game.member.name && <span className="tag is-link">{game.member.name}</span>}
       </div>
       {result && <p className="vertical-text">{result}</p>}

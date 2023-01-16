@@ -9,6 +9,7 @@ export default function BoardSquare({
   piece,
   black,
   position,
+  text,
 }) {
   const [promotion, setPromotion] = useState(null)
   const [, drop] = useDrop({
@@ -26,7 +27,7 @@ export default function BoardSquare({
           : setPromotion(null)
     )
     return () => subscribe.unsubscribe()
-  }, [position])
+  }, [position])  
   return (
     <div className="board-square" ref={drop}>
       <Square black={black}>

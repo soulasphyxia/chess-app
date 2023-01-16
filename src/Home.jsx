@@ -6,9 +6,9 @@ export default function Home() {
     const [showModal, setShowModal] = useState(false)
     const history = useHistory()
     const newGameOptions = [
-        { label: 'Black pieces', value: 'b' },
-        { label: 'White pieces', value: 'w' },
-        { label: 'Random', value: 'r' },
+        { label: 'Черные', value: 'b' },
+        { label: 'Белые', value: 'w' },
+        { label: 'Случайно', value: 'r' },
     ]
     
 
@@ -46,7 +46,7 @@ export default function Home() {
             </div>
  
             <div >
-                 <button className="play-btn" onClick={handlePlayOnline}> Play </button>
+                 <button className="play-btn" onClick={handlePlayOnline}> Начать игру</button>
             </div>
             <div className={`modal ${showModal ? 'is-active' : ''}`}>
                 <div className="modal-background"></div>
@@ -54,7 +54,7 @@ export default function Home() {
                     <div className="card">
                         <div className="card-content">
                             <div className="content">
-                                Please Select the piece you want to start
+                                Пожалуйста выберите сторону, за которую желаете играть
                             </div>
 
                         </div>

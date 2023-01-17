@@ -6,9 +6,9 @@ export default function Home() {
     const [showModal, setShowModal] = useState(false)
     const history = useHistory()
     const newGameOptions = [
-        { label: 'Black pieces', value: 'b' },
-        { label: 'White pieces', value: 'w' },
-        { label: 'Random', value: 'r' },
+        { label: 'Черные', value: 'b' },
+        { label: 'Белые', value: 'w' },
+        { label: 'Случайно', value: 'r' },
     ]
 
     function handlePlayOnline() {
@@ -34,8 +34,10 @@ export default function Home() {
     return (
         <>
             
-                <div >
-                    <button className="play-btn" onClick={handlePlayOnline}> Play </button>
+                <div className="menu">
+                    <p style={{fontSize: 35}}>Шахматы Онлайн</p>
+                    <button className="play-btn" onClick={handlePlayOnline}> Играть </button>
+                    <button className="rules-btn" onClick={()=>{window.open("https://xchess.ru/pravila-igry-v-shakhmaty-polnoe-rukovodstvo.html",'_blank')}}>Правила</button>
                 </div>
             <div className={`modal ${showModal ? 'is-active' : ''}`}>
                 <div className="modal-background"></div>
@@ -43,9 +45,8 @@ export default function Home() {
                     <div className="card">
                         <div className="card-content">
                             <div className="content">
-                                Please Select the piece you want to start
+                                Выберите сторону, за которую хотите начать:
                             </div>
-
                         </div>
                         <footer className="card-footer">
                             {newGameOptions.map(({ label, value }) => (
@@ -57,7 +58,7 @@ export default function Home() {
                         </footer>
                     </div>
                 </div>
-                <button className="modal-close is-large" onClick={() => setShowModal(false)}></button>
+                <button className="modal-close" onClick={() => setShowModal(false)}></button>
             </div>
         </>
     )

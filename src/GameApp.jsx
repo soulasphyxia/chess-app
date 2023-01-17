@@ -5,7 +5,6 @@ import Board from './Board'
 import { useParams, useHistory } from 'react-router-dom'
 import { db } from './firebase'
 
-
 const letters = ['a','b','c','d','e','f','g','h'];
 function GameApp() {
   const [board, setBoard] = useState([])
@@ -16,6 +15,7 @@ function GameApp() {
   const [loading, setLoading] = useState(true)
   const [status, setStatus] = useState('')
   const [game, setGame] = useState({})
+  const [turn, setTurn] = useState("w");
   const { id } = useParams()
   const history = useHistory()
   const sharebleLink = window.location.href
@@ -27,6 +27,7 @@ function GameApp() {
       setLoading(false)
       if (!res) {
         subscribe = gameSubject.subscribe((game) => {
+          setTurn(game.turn)
           setBoard(game.board)
           setIsGameOver(game.isGameOver)
           setResult(game.result)
@@ -36,7 +37,6 @@ function GameApp() {
         })
 
       }
-
     }
 
     init()
@@ -49,26 +49,27 @@ function GameApp() {
   }
 
   if (loading) {
-    return 'Loading ...'
+    return 'Загрузка ...'
   }
   if (initResult === 'notfound') {
-    return 'Game Not found'
+    return 'Игра не найдена'
   }
 
   if (initResult === 'intruder') {
-    return 'The game is already full'
+    return 'Игра уже заполнена'
   }
 
   return (
     <div className="app-container">
+      <div className="turn">{turn == "w" ? <p>Ход белых</p> : <p>Ход черных</p>}</div>
       {isGameOver && (
         <h2 className="vertical-text">
-          GAME OVER
+          ИГРА ОКОНЧЕНА
           <button onClick={async () => {
             await resetGame()
             history.push('/')
           }}>
-            <span className="vertical-text"> NEW GAME</span>
+            <span className="vertical-text"> НОВАЯ ИГРА</span>
           </button>
         </h2>
       )}
@@ -76,31 +77,28 @@ function GameApp() {
         <div className="numbers">{letters.map((letter,index) => <div className="num">{index+1}</div>)}</div>
       )}
       <div className="board-container">
-        {game.oponent && game.oponent.name && <span className="tag is-link">{game.oponent.name}</span>}
+        {game.oponent && game.oponent.name && <span className="tagopp">{game.oponent.name}</span>}
         <Board board={board} position={position} />
         <div className="letters">
           {letters.map(letter => <div className="letter">{letter}</div>)}
         </div>
-        {game.member && game.member.name && <span className="tag is-link">{game.member.name}</span>}
+        {game.member && game.member.name && <span className="tag">{game.member.name}</span>}
       </div>
       {result && <p className="vertical-text">{result}</p>}
       {status === 'waiting' && (
-        <div className="notification is-link share-game">
-          <strong>Share this game to continue</strong>
+        <div className="share-game">
+          <strong className="share">Для начала игры поделись этой ссылкой с другом:</strong>
           <br />
-          <br />
-          <div className="field has-addons">
-            <div className="control is-expanded">
-              <input type="text" name="" id="" className="input" readOnly value={sharebleLink} />
-            </div>
+          <div className="field">
             <div className="control">
-              <button className="button is-info" onClick={copyToClipboard}>Copy</button>
+              <input type="text" name="" id="" className="input" readOnly value={sharebleLink} />
+              <button className="btn" onClick={copyToClipboard}>⎘</button>
             </div>
           </div>
         </div>
       )}
-
     </div>
+
   )
 }
 

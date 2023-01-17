@@ -50,6 +50,7 @@ export async function initGame(gameRefFb) {
                     pendingPromotion,
                     isGameOver,
                     position: member.piece,
+                    turn: chess.turn(),
                     member,
                     oponent,
                     result: isGameOver ? getGameResult() : null,
@@ -144,19 +145,19 @@ async function updateGame(pendingPromotion, reset) {
 }
 function getGameResult() {
     if (chess.in_checkmate()) {
-        const winner = chess.turn() === "w" ? 'BLACK' : 'WHITE'
-        return `CHECKMATE - WINNER - ${winner}`
+        const winner = chess.turn() === "w" ? 'ЧЕРНЫЕ' : 'БЕЛЫЕ'
+        return `ШАХ И МАТ - Победитель - ${winner}`
     } else if (chess.in_draw()) {
-        let reason = '50 - MOVES - RULE'
+        let reason = 'Правило 50 ходов.'
         if (chess.in_stalemate()) {
-            reason = 'STALEMATE'
+            reason = 'Безвыходное положение'
         } else if (chess.in_threefold_repetition()) {
-            reason = 'REPETITION'
+            reason = 'Повтор позиции'
         } else if (chess.insufficient_material()) {
-            reason = "INSUFFICIENT MATERIAL"
+            reason = "Невозможно закончить игру матом"
         }
-        return `DRAW - ${reason}`
+        return `НИЧЬЯ. ПРИЧИНА - ${reason}`
     } else {
-        return 'UNKNOWN REASON'
+        return 'Неизвестная причина'
     }
 }

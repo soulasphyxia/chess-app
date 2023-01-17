@@ -28,7 +28,6 @@ export default function Board({ board, position }) {
     const letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'][
       x
     ]
-    console.log(`${letter}${y + 1}`)
     return `${letter}${y + 1}`
   }
   return (

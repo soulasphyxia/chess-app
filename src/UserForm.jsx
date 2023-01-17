@@ -10,14 +10,14 @@ export default function UserForm() {
     }
     return (
         <form className="user-form" onSubmit={handleSubmit}>
-            <h1>Enter your name to start</h1>
+            <h1>Введите свое имя:</h1>
             <br />
             <div className="field">
                 <p className="control">
                     <input type="text"
                         name="" id=""
                         className="input"
-                        placeholder="Name"
+                        placeholder="Ваше имя"
                         value={name}
                         onChange={e => setName(e.target.value)}
                         required />
@@ -26,8 +26,8 @@ export default function UserForm() {
             </div>
             <div className="field">
                 <p className="control">
-                    <button className="button is-success" type="submit">
-                        Start
+                    <button className="button" type="submit">
+                        Начать
                     </button>
                 </p>
             </div>

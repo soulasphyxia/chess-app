@@ -29,7 +29,7 @@
 }
 .share-game {
     position: absolute;
-    width: 300px;
+    width: 200px;
     bottom: 0;
     left: 0;
 }
@@ -123,11 +123,86 @@
     color: white;
 }
 
-.numbers{ display: flex; flex-direction: column; margin-right: 5px; }
+.numbers{ display: flex; flex-direction: column; margin-right: 5px; height: 600px;}
 
 .num{
-    height: 75px;
+    height: 100%;
     display: flex;
     align-items: center;
     color: white;
+}
+
+
+
+.share-game{
+    width: 300px;
+    position: absolute;
+    left: 30px;
+    top: 50%;
+}
+
+.share{
+    color:white;
+}
+
+.btn{
+    width: 20px;
+}
+
+.control{
+    display: flex;
+}
+
+.turn{
+    color:white;
+    font-size: 20px;
+    position: absolute;
+    top: 5%;
+}
+
+.tag{
+    margin-bottom: 10px;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 45%;
+    top: 35%;
+    align-items: center;
+
+}
+
+.play-btn{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border:none;
+    font-size: 1.3rem;
+    border: 1px solid black;
+    text-align: center;
+    margin: 5px;
+}
+
+.play-btn:hover{
+    background-color: green;
+    color: white;
+}
+
+.rules-btn{
+    width: 150px;
+    height: 30px;
+    margin: 5px;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+
+.rules-btn:hover{
+    background-color: gray;
+    color: white;
+}
+
+.tagopp{
+
 }

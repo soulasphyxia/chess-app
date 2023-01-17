@@ -11,10 +11,10 @@ export default function App() {
     const [user, loading, error] = useAuthState(auth)
 
     if (loading) {
-        return 'loading ...'
+        return 'Загрузка...'
     }
     if (error) {
-        return 'There was an error'
+        return 'Ошибка!'
     }
     if (!user) {
         return <UserForm />
@@ -24,12 +24,13 @@ export default function App() {
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <Home></Home>
+                    <Home />
                 </Route>
                 <Route path="/game/:id">
                     <GameApp />
                 </Route>
             </Switch>
         </Router>
+
     )
 }

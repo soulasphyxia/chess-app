@@ -61,7 +61,7 @@ function GameApp() {
 
   return (
     <div className="app-container">
-      <div className="turn">{turn == "w" ? <p>Ход белых</p> : <p>Ход черных</p>}</div>
+      <div className="turn">{turn === "w" ? <p>Ход белых</p> : <p>Ход черных</p>}</div>
       {isGameOver && (
         <h2 className="vertical-text">
           ИГРА ОКОНЧЕНА
@@ -74,10 +74,11 @@ function GameApp() {
         </h2>
       )}
       {!isGameOver && (
-        <div className="numbers">{letters.map((letter,index) => <div className="num">{index+1}</div>)}</div>
+          <div className="numbers">{letters.map((letter,index) => <div className="num">{index+1}</div>)}</div>
       )}
+      {game.oponent && game.oponent.name && <span className="tag" id="opp">{game.oponent.name}</span>}
       <div className="board-container">
-        {game.oponent && game.oponent.name && <span className="tagopp">{game.oponent.name}</span>}
+
         <Board board={board} position={position} />
         <div className="letters">
           {letters.map(letter => <div className="letter">{letter}</div>)}

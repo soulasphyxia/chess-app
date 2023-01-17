@@ -123,7 +123,7 @@
     color: white;
 }
 
-.numbers{ display: flex; flex-direction: column; margin-right: 5px; height: 600px;}
+.numbers{ display: flex; flex-direction: column;height: 600px; margin-right: 5px}
 
 .num{
     height: 100%;
@@ -203,6 +203,10 @@
     color: white;
 }
 
-.tagopp{
-
+#opp{
+    position: relative;
+    left: 40px;
+    top: -320px;
+    margin-left: -25px;
 }
+

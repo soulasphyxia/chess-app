@@ -2,9 +2,6 @@ import firebase from "firebase/app";
 import 'firebase/firestore'
 import 'firebase/auth'
 
-//you can either add your firebase config directly like in the tutorial or can also add it as an 
-//json string like here https://create-react-app.dev/docs/adding-custom-environment-variables/
-
 const firebaseConfig = {
   apiKey: "AIzaSyBr3sTQeqvEXdUVKuYsn0gIbTE7yHnux50",
   authDomain: "react-chess-76dd5.firebaseapp.com",
@@ -15,7 +12,6 @@ const firebaseConfig = {
 };
 
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 export const db = firebase.firestore()
